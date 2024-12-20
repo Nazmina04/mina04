@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: "Georgia pro";
+            background-color: #f8f8e9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #2d6c6d;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+        }
+
+        .title {
+            font-family: "feeling passionate";
+            font-size: 2.5rem;
+            font-style: italic;
+            color: #f28568;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #f8f8e7;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        nav ul li a:hover, .active {
+            color: #f28568;
+        }
+
+        /* Music Button */
+        .music-container {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .music-btn {
+            background-color: #2d6c6d;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background-color: #f28568;
+            transform: scale(1.1);
+        }
+
+        /* Education Section */
+        .education-page {
+            display: flex;
+            height: 90vh;
+        }
+
+        .education-sidebar {
+            background-color: #2d6c6d;
+            color: #e6cc9b;
+            width: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .education-sidebar h2 {
+            font-family: "feeling passionate";
+            font-size: 2.5rem;
+            transform: rotate(-90deg);
+            white-space: nowrap;
+        }
+
+        .education-content {
+            width: 85%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #f8f8e9;
+            padding: 2rem 1rem;
+        }
+
+        .education-item {
+            text-align: center;
+        }
+
+        .education-image {
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2.8px solid #2d6c6d;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: border-glow 5s infinite;
+        }
+
+        .education-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px #2d6c6d, 0 0 20px #2d6c6d, 0 0 30px #2d6c6d;
+            }
+            50% {
+                box-shadow: 0 0 20px turquoise, 0 0 30px turquoise, 0 0 40px turquoise;
+            }
+        }
+
+        .education-caption {
+            background-color: #2d6c6d;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 1rem;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .education-caption:hover {
+            background-color: #f28568;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #2d6c6d;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Falling Flowers/Leaves */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.8;
+            }
+        }
+
+        .falling-object {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: fall 8s linear infinite;
+            z-index: 0;
+        }
+
+        .falling-object:nth-child(1) {
+            left: 10%;
+            animation-duration: 0s;
+            animation-delay: 0s;
+            background-image: url('flower1.jpeg');
+        }
+
+        .falling-object:nth-child(2) {
+            left: 25%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+            background-image: url('flower2.jpeg');
+        }
+
+        .falling-object:nth-child(3) {
+            left: 40%;
+            animation-duration: 8s;
+            animation-delay: 4s;
+            background-image: url('leaf1.jpeg');
+        }
+
+        .falling-object:nth-child(4) {
+            left: 60%;
+            animation-duration: 14s;
+            animation-delay: 6s;
+            background-image: url('leaf2.jpeg');
+        }
+
+        .falling-object:nth-child(5) {
+            left: 80%;
+            animation-duration: 9s;
+            animation-delay: 8s;
+            background-image: url('flower3.jpeg');
+        }
+
+        /* Decorative Flowers */
+        .flower-left {
+            position: absolute;
+            bottom: -121px;
+            right: 983px;
+            width: 450px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <body>
+        <!-- Falling Flowers/Leaves -->
+        <div class="falling-container">
+            <div class="falling-object"></div>
+            <div class="falling-object"></div>
+            <div class="falling-object"></div>
+            <div class="falling-object"></div>
+            <div class="falling-object"></div>
+        </div>
+    
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1 class="title">Welcome to my website 𝜗𝜚</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="biodata.html">Biodata</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="education.html" class="active">Education</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="music-container">
+            <button id="music-btn" class="music-btn" onclick="toggleMusic()">Play Music 🎵</button>
+        </div>
+    </header>
+
+       
+    <!-- Education Section -->
+    <main>
+        <section class="education-page">
+            <div class="education-sidebar">
+                <h2>Education</h2>
+            </div>
+            <div class="education-content">
+                <div class="education-item">
+                    <div class="education-image" style="background-image: url('logoskperoh.jpeg');"></div>
+                    <div class="education-caption">SK PEROH<br>2015-2016</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-image" style="background-image: url('logosmam.jpeg');"></div>
+                    <div class="education-caption">SMA MAHMUDIAH<br>2017-2021</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-image" style="background-image: url('logouitm.jpeg');"></div>
+                    <div class="education-caption">UiTM MACHANG<br>2022-PRESENT</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Mina Website | Designed by Nazmina</p>
+    </footer>
+
+    <!-- Decorative Flowers -->
+    <img src="floweredu.jpeg" alt="Flower Decoration" class="flower-left" width="600px">
+
+    <!-- JavaScript -->
+
+    <script>
+        const music = new Audio("laguwebsite.mp3");
+        const musicButton = document.getElementById("music-btn");
+
+        // Restore music state
+        const isMusicPlaying = localStorage.getItem("musicPlaying") === "true";
+
+        if (isMusicPlaying) {
+            music.play();
+            music.loop = true;
+            musicButton.textContent = "Pause Music ⏸️";
+        }
+
+        // Music toggle
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                music.loop = true;
+                localStorage.setItem("musicPlaying", "true");
+                musicButton.textContent = "Pause Music ⏸️";
+            } else {
+                music.pause();
+                localStorage.setItem("musicPlaying", "false");
+                musicButton.textContent = "Play Music 🎵";
+            }
+        }
+
+        const container = document.querySelector('.falling-container');
+
+function createFallingObject() {
+    const object = document.createElement('div');
+    object.classList.add('falling-object');
+    object.style.left = Math.random() * 100 + '%';
+    object.style.animationDuration = Math.random() * 10 + 5 + 's';
+    object.style.backgroundImage = `url('flower${Math.ceil(Math.random() * 3)}.png')`;
+    container.appendChild(object);
+
+    setTimeout(() => {
+        object.remove();
+    }, 15000); // Remove after animation ends
+}
+
+// Generate falling objects at intervals
+setInterval(createFallingObject, 1000);
+
+
+    </script>
+</body>
+</html>

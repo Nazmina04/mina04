@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #2c5364, #0f2027);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Georgia pro";
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Snow Animation */
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: snowfall 10s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Header and Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            padding: 30px;
+            z-index: 10;
+            background-color:#2d6c6d;
+            color:#fff
+        
+        }
+
+        header h1 {
+            font-style: italic;
+            color: #f28568;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f8f8e7;
+            font-size: 1.2rem;
+            font-weight: none;
+        }
+
+        nav ul li a:hover,
+        .active {
+            color: #f28568;
+            text-decoration: none;
+        }
+
+        /* Music Button */
+        .music-container {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .music-btn {
+            background-color: #2d6c6d;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background-color: #f28568;
+            transform: scale(1.1);
+        }
+
+
+        /* Page Title */
+        .page-title {
+            margin-bottom: 4rem;
+            text-align: center;
+            font-size: 2.5rem;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 0 0 1px whitesmoke;
+            color: #f8f8e7;
+        }
+
+        /* 3D Image Slider */
+        .slider {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: rotate 25s linear infinite;
+            margin-top: 30px;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+
+        .slider span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
+        }
+
+        .slider span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: 1s;
+        }
+
+        .slider span:hover img {
+            transform: translateY(-20px) scale(1.2);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            color: white;
+            font-size: 0.9rem;
+    
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Snowflakes -->
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake" style="left: 5%; animation-delay: 1s;"></div>
+        <div class="snowflake" style="left: 15%; animation-delay: 2s;"></div>
+        <div class="snowflake" style="left: 25%; animation-delay: 1.5s;"></div>
+        <div class="snowflake" style="left: 35%; animation-delay: 3s;"></div>
+        <div class="snowflake" style="left: 50%; animation-delay: 2.5s;"></div>
+        <div class="snowflake" style="left: 65%; animation-delay: 1.8s;"></div>
+        <div class="snowflake" style="left: 75%; animation-delay: 3.2s;"></div>
+        <div class="snowflake" style="left: 85%; animation-delay: 1s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to my website 𝜗𝜚</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="biodata.html">Biodata</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="music-container">
+            <button id="music-btn" class="music-btn" onclick="toggleMusic()">Play Music 🎵</button>
+         </div>
+    </header>
+
+    <!-- Page Title -->
+    <div class="page-title">Gallery</div>
+
+    <!-- 3D Image Slider -->
+    <main>
+        <div class="slider">
+            <span style="--i:1;"><img src="gallery1.jpeg" alt="Image 1"></span>
+            <span style="--i:2;"><img src="gallery2.jpeg" alt="Image 2"></span>
+            <span style="--i:3;"><img src="gallery3.jpeg" alt="Image 3"></span>
+            <span style="--i:4;"><img src="gallery4.jpeg" alt="Image 4"></span>
+            <span style="--i:5;"><img src="gallery5.jpeg" alt="Image 5"></span>
+            <span style="--i:6;"><img src="gallery6.jpeg" alt="Image 6"></span>
+            <span style="--i:7;"><img src="gallery7.jpeg" alt="Image 7"></span>
+            <span style="--i:8;"><img src="gallery8.jpeg" alt="Image 8"></span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Mina Website | Designed by Nazmina</p>
+    </footer>
+
+<!-- JavaScript -->
+<script>
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
+    const music = new Audio("laguwebsite.mp3");
+    const musicButton = document.getElementById("music-btn");
+
+    // Restore music state
+    const isMusicPlaying = localStorage.getItem("musicPlaying") === "true";
+
+    if (isMusicPlaying) {
+        music.play();
+        music.loop = true;
+        musicButton.textContent = "Pause Music ⏸️";
+    }
+
+    // Music toggle
+    function toggleMusic() {
+        if (music.paused) {
+            music.play();
+            music.loop = true;
+            localStorage.setItem("musicPlaying", "true");
+            musicButton.textContent = "Pause Music ⏸️";
+        } else {
+            music.pause();
+            localStorage.setItem("musicPlaying", "false");
+            musicButton.textContent = "Play Music 🎵";
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: "Georgia pro";
+            background: url("gambarexp.jpeg");
+            background-size: 300% 300%;
+            color: #333;
+            animation: backgroundEffect 25s ease infinite;
+        }
+/* Background Animation */
+@keyframes backgroundEffect {
+    0% {
+        background-position: 0% 70%;
+    }
+    50% {
+        background-position: 100% 45%;
+    }
+    100% {
+        background-position: 0% 70%;
+    }
+}
+
+        /* Header */
+        header {
+            background-color: #2d6c6d;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .title {
+            font-family: "feeling passionate";
+            font-size: 2.5rem;
+            font-style: italic;
+            color: #f28568;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #f8f8e7;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        nav ul li a:hover,
+        .active {
+            color: #f28568;
+            text-decoration: none;
+        }
+
+        /* Music Button */
+        .music-container {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .music-btn {
+            background-color: #2d6c6d;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background-color: #f28568;
+            transform: scale(1.1);
+        }
+
+        /* Experience Page */
+        .experience-page {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .experience-title {
+            font-size: 2.5rem;
+            color: #2d6c6d;
+            text-shadow: 0 0 1px whitesmoke;
+            margin-bottom: 2.5rem;
+        }
+
+        .experience-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+        }
+
+
+        .experience-block {
+            background-color: #fdfbe9;
+            border: 3px solid #f28568;
+            border-radius: 30px;
+            width: 265px;
+            height: 265px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-block:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .modal-content p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f28568;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        .close-btn:hover {
+            background: #d9534f;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 5rem;
+            color: whitesmoke;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <h1 class="title">Welcome to my website 𝜗𝜚</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="biodata.html">Biodata</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="music-container">
+            <button id="music-btn" class="music-btn" onclick="toggleMusic()">Play Music 🎵</button>
+        </div>
+    </header>
+
+    <!-- Experience Section -->
+    <main>
+        <section class="experience-page">
+            <h2 class="experience-title">Experience</h2>
+            <div class="experience-container">
+                <div class="experience-block" onclick="openModal('I completed two months of industrial training at a hospital in Hulu, Terengganu. I was assigned to the department that handles medical records.')">
+                    <p>I completed two months of industrial training 
+                        at a hospital in Hulu, Terengganu. 
+                        I was assigned to the department that handles medical records</p>
+                </div>
+                <div class="experience-block" onclick="openModal('I worked part-time at a supermarket as a cashier during the last semester break.')">
+                    <p>I worked part-time at a supermarket as a cashier.</p>
+                </div>
+                <div class="experience-block" onclick="openModal('I participated in the international 3-minute business idea pitch and innovation competition, organized by UITM Machang and Indonesian universities.')">
+                    <p>I have participated in the international 3-minute business idea pitch and innovation competition,
+                        which has been organised by the UITM Machang branch 
+                        and universities in Indonesia.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" id="modal-content">
+            <button class="close-btn" onclick="closeModal()">X</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Mina Website | Designed by Nazmina</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const modal = document.getElementById("modal");
+        const modalContent = document.getElementById("modal-content");
+        const music = new Audio("laguwebsite.mp3");
+        const musicButton = document.getElementById("music-btn");
+
+        // Restore music state
+        const isMusicPlaying = localStorage.getItem("musicPlaying") === "true";
+
+        if (isMusicPlaying) {
+            music.play();
+            music.loop = true;
+            musicButton.textContent = "Pause Music ⏸️";
+        }
+
+        // Music toggle
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                music.loop = true;
+                localStorage.setItem("musicPlaying", "true");
+                musicButton.textContent = "Pause Music ⏸️";
+            } else {
+                music.pause();
+                localStorage.setItem("musicPlaying", "false");
+                musicButton.textContent = "Play Music 🎵";
+            }
+        }
+
+        // Open Modal with Content
+        function openModal(content) {
+            modal.style.display = "flex";
+            modalContent.innerHTML = `<button class="close-btn" onclick="closeModal()">X</button><p>${content}</p>`;
+        }
+
+        // Close Modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

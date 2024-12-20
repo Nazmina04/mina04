@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to my website</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: "Georgia pro";
+            background-color: #f8f8e7;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #2d6c6d;
+            color: #f8f8e7;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .title {
+            font-family: "feeling passionate";
+            font-size: 2.5rem;
+            font-style: italic;
+            color: #f28568;
+            text-shadow: #333;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 5;
+            padding: 10;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #f8f8e7;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: none;
+        }
+
+        nav ul li a:hover {
+            color: #f28568;
+        }
+
+        /* Digital Clock */
+        .clock {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2rem;
+            color: #00FFFF;
+            position: fixed;
+            top: 57px;
+            left: 150px;
+            background-color: transparent;
+            padding: 0.5rem;
+            text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+        }
+
+        /* Main Section */
+        .homepage {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2rem auto;
+            padding: 4rem;
+            max-width: 60%;
+        }
+
+        .homepage .image-section {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Add animation to image */
+    .homepage .image-section img {
+        width: 200%;
+        max-width: 650px;
+        height: auto;
+        border: 2px solid #f28568;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        animation: borderPulse 3s infinite ease-in-out;
+    }
+
+    /* Border animation keyframes */
+    @keyframes borderPulse {
+        0% {
+            border-color: #f28568;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        50% {
+            border-color: #00b4d8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        100% {
+            border-color: #f28568;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+        /* Add animation to content section */
+    .homepage .content-section {
+        flex: 1.5;
+        margin-left: 7rem;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        border-radius: 40px;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 3px solid transparent;
+        animation: borderGlow 4s infinite ease-in-out;
+    }
+
+ /* Border glow animation keyframes */
+ @keyframes borderGlow {
+        0% {
+            border-color: #2d6c6d;
+        }
+        50% {
+            border-color: #f28568;
+            box-shadow: 0 8px 16px rgba(242, 133, 104, 0.5);
+        }
+        100% {
+            border-color: #2d6c6d;
+        }
+    }
+
+        .content-section h2 {
+            color: #f28568;
+            font-family: 'Georgia pro';
+            font-style: italic;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .content-section p {
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Hover Effect for Content Section */
+        .content-section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        /* Music Button */
+        .music-container {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .music-btn {
+            background-color: #2d6c6d;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background-color: #f28568;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #2d6c6d;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Decorative Flowers */
+        .flower-left, .flower-right {
+            position: absolute;
+        }
+
+        .flower-left {
+            left: 30px;
+            bottom: 10px;
+        }
+
+        .flower-right {
+            right: -30px;
+            bottom: -20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Digital Clock -->
+    <div class="clock" id="clock"></div>
+
+    <!-- Header -->
+    <header>
+        <h1 class="title">Welcome to my website 𝜗𝜚</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="biodata.html">Biodata</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="music-container">
+            <button id="music-btn" class="music-btn" onclick="toggleMusic()">Play Music 🎵</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="homepage">
+        <div class="image-section">
+            <img src="gambarhome.jpeg" alt="Background Image">
+        </div>
+        <div class="content-section">
+            <h2>Hi there, I am Nazmina!</h2>
+            <p> 
+                This website is a window into my little journey in life, 
+                where you can explore about me, my interests and more.<br>
+                Thanks for visiting!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Mina Website | Designed by Nazmina</p>
+    </footer>
+
+    <!-- Decorative Flowers -->
+    <img src="flowerhome1.jpeg" alt="Flower Decoration" class="flower-left" width="600px">
+    <img src="flowerhome2.jpeg" alt="Flower Decoration" class="flower-right" width="auto">
+
+    <!-- JavaScript -->
+    <script>
+        const music = new Audio("laguwebsite.mp3");
+        const musicButton = document.getElementById("music-btn");
+
+        // Restore music state
+        const isMusicPlaying = localStorage.getItem("musicPlaying") === "true";
+
+        if (isMusicPlaying) {
+            music.play();
+            music.loop = true;
+            musicButton.textContent = "Pause Music ⏸️";
+        }
+
+        // Music toggle
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                music.loop = true;
+                localStorage.setItem("musicPlaying", "true");
+                musicButton.textContent = "Pause Music ⏸️";
+            } else {
+                music.pause();
+                localStorage.setItem("musicPlaying", "false");
+                musicButton.textContent = "Play Music 🎵";
+            }
+        }
+
+        // Digital Clock Function
+        function updateClock() {
+            const clockElement = document.getElementById("clock");
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to set the time immediately
+    </script>
+</body>
+</html>
